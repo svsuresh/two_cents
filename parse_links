@@ -1,0 +1,4 @@
+# This script allows user to parse source html for links (denoted by href tag) and then lists out links to videos  mentioned in the source. Assumption is that this source file has links to videos and the links are in good number.
+# Script first greps for href tag and cuts second field separated by "". Then greps for string "you". Then it again complement cuts first field and separator is :. Then it replaces "embed" code to "watch" to generate correct links to videos. At the end, it uses youtube-dl scripts to download multiple files.
+grep -o -E 'href="([^"#]+)"' <input.html>| cut -d'"' -f2 | grep -i you | cut --complement -f1 -d':' | sed 's/embed\//watch\?v\=/g' | cut -f3 -d"?" --complement | youtube-dl -a -
+
