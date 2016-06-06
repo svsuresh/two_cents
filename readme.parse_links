@@ -1,0 +1,1 @@
+This script parses the links for embedded videos and allows the user to download multiple videos from command line. This script works on linux and needs youtube-dl program to download videos.
